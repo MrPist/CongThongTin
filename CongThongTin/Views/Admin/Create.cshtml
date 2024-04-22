@@ -1,0 +1,69 @@
+﻿@model CongThongTin.Models.Post
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin1.cshtml";
+}
+
+<h1 class="text-center">Tạo mới</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PostID" class="control-label"></label>
+                <input asp-for="PostID" class="form-control" />
+                <span asp-validation-for="PostID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCateID" class="control-label"></label>
+                <select asp-for="PostCateID" class ="form-control" asp-items="ViewBag.PostCateID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post_title" class="control-label"></label>
+                <input asp-for="Post_title" class="form-control" />
+                <span asp-validation-for="Post_title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="avatar" class="control-label"></label>
+                <input type="file" id="file" name="file" asp-for="avatar" class="form-control" />
+                <span asp-validation-for="avatar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_created" class="control-label"></label>
+                <input asp-for="Date_created" class="form-control" />
+                <span asp-validation-for="Date_created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_update" class="control-label"></label>
+                <input asp-for="Date_update" class="form-control" />
+                <span asp-validation-for="Date_update" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Post_content" class="control-label"></label>
+                <textarea asp-for="Post_content" name="Post_content" id="Post_content" class="form-control">@Model.Post_content</textarea>
+                <span asp-validation-for="Post_content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="justify-content-center text-center" asp-action="Index">Trở lại</a>
+</div>
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('Post_content');
+    </script>
+}

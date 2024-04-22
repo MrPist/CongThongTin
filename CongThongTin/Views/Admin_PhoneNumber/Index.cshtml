@@ -1,0 +1,54 @@
+﻿@model IEnumerable<CongThongTin.Models.Phone_number>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.link)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_TypeIDNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone_numberIDNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.link)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Number_TypeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone_numberIDNavigation.PostCateID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Number">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Number">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Number">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
