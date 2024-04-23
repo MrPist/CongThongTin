@@ -49,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.Package_title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Package_content)
+                @Html.Raw(item.Package_content)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cost)

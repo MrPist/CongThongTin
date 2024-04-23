@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CongThongTin.Data;
 using CongThongTin.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CongThongTin.Controllers
 {
+    [Authorize]
     public class Admin_PackageCateController : Controller
     {
         private readonly ApplicationDbContext _context;
