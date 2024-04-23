@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CongThongTin.Models.Post>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 class="text-center">Thông tin tìm kiếm</h1>
+<table class="table">
+    <thead>
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(model => model.PostID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post_title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Post_content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.avatar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_update)
+            </th>
+            <th>
+                @Html.DisplayName("Thể loại tin")
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post_title)
+                </td>
+                <td>
+                    @Html.Raw(item.Post_content.Length >= 160 ? item.Post_content.Substring(0, 160) : item.Post_content + " ...")
+                    @* @Html.DisplayFor(modelItem => item.Post_content) *@
+                </td>
+                <td>
+                    <img width="150px" src="~/images/post/@Html.DisplayFor(modelItem => item.avatar)" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date_update)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostIDNavigation.Name)
+                </td>
+                <td>
+                    <a class="text-danger" asp-action="Edit" asp-route-id="@item.PostID">Edit</a>
+                </td>
+                <td>
+                    <a class="text-warning" asp-action="Details" asp-controller="Home" asp-route-id="@item.PostID">Details</a>
+                </td>
+                <td>
+                    <a class="text-info" asp-action="Delete" asp-route-id="@item.PostID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

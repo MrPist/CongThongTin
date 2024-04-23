@@ -171,7 +171,11 @@ namespace CongThongTin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var post = _context.Post.Where(p => p.Post_title.Contains(keyword));
+            return View(await post.ToListAsync());
+        }
         private bool PostExists(string id)
         {
             return _context.Post.Any(e => e.PostID == id);

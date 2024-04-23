@@ -149,5 +149,10 @@ namespace CongThongTin.Controllers
         {
             return _context.Package_Cate.Any(e => e.Package_CateID == id);
         }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var packagetype = _context.Package_Cate.Where(p => p.Package_name.Contains(keyword));
+            return View(await packagetype.ToListAsync());
+        }
     }
 }

@@ -11,6 +11,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.PostID)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Post_title)
             </th>
             <th>
@@ -36,6 +39,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostID)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Post_title)
             </td>

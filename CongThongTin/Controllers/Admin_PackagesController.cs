@@ -157,7 +157,11 @@ namespace CongThongTin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var package = _context.Package.Where(p => p.Package_ID.Contains(keyword));
+            return View(await package.ToListAsync());
+        }
         private bool PackageExists(string id)
         {
             return _context.Package.Any(e => e.Package_ID == id);

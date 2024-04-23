@@ -162,5 +162,11 @@ namespace CongThongTin.Controllers
         {
             return _context.Phone_number.Any(e => e.Number == id);
         }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+
+            var phone = _context.Phone_number.Where(p => p.Number.Contains(keyword));
+            return View(await phone.ToListAsync());
+        }
     }
 }

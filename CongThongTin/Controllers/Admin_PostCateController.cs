@@ -149,5 +149,10 @@ namespace CongThongTin.Controllers
         {
             return _context.Post_cate.Any(e => e.PostCateID == id);
         }
+        public async Task<IActionResult> SortByName(string keyword)
+        {
+            var posttype = _context.Post_cate.Where(p => p.Name.Contains(keyword));
+            return View(await posttype.ToListAsync());
+        }
     }
 }

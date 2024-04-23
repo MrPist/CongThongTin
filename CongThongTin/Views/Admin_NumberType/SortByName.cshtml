@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CongThongTin.Models.Number_Type>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Thể loại sim vừa được tìm kiếm</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Number_TypeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_TypeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td>
+                    <a class="text-danger" asp-action="Edit" asp-route-id="@item.Number_TypeID">Edit</a>
+                </td>
+                <td>
+                    <a class="text-info" asp-action="Delete" asp-route-id="@item.Number_TypeID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

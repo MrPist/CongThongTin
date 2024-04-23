@@ -1,0 +1,63 @@
+﻿ @model IEnumerable<CongThongTin.Models.Phone_number>
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Sim số vừa được tìm kiếm</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayName("Loại số")
+            </th>
+            <th>
+                @Html.DisplayName("Thể loại tin")
+            </th>
+            <th>
+                @Html.DisplayName("Giá")
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone_numberIDNavigation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.cost)
+                </td>
+                <td>
+                    <a class="text-danger" asp-action="Edit" asp-route-id="@item.Number">Edit</a>
+                </td>
+                <td>
+                    <a class="text-warning" asp-action="Details" asp-controller="Phone_number" asp-route-id="@item.Number">Details</a>
+                </td>
+                <td>
+                    <a class="text-info" asp-action="Delete" asp-route-id="@item.Number">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

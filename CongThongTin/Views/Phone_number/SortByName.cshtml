@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<CongThongTin.Models.Phone_number>
 
 @{
-    ViewData["Title"] = "Sim số";
+    ViewData["Title"] = "Sort By Number";
     Layout = "~/Views/Shared/_Layout_Trangchinh.cshtml";
 }
+
 <h1 class="text-center"> Dịch vụ Sim Số</h1>
 <hr />
 <br />
@@ -22,9 +23,6 @@
                 <th>
                     @Html.DisplayName("Mô Tả")
                 </th>
-                <th>
-                    @Html.DisplayName("Giá")
-                </th>
                 <th></th>
             </tr>
         </thead>
@@ -42,13 +40,11 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Number_TypeIDNavigation.cost)
-                    </td>
-                    <td>
-                        <a href="@Html.DisplayFor(modelItem => item.link)" type="button" data-bs-toggle="tooltip" title="Buy now!" class="text-danger text-center btn btn-outline-primary">Mua</a>
+                        <a type="button" class="btn btn-outline-primary text-danger" asp-action="ChonSo" asp-route-id="@item.Number">Chọn số</a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
