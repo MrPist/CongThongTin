@@ -96,6 +96,8 @@ namespace CongThongTin.Controllers
             }
             
             var post = await _context.Post.FindAsync(id);
+            post.Date_update = DateTime.Now;
+            
             if (post == null)
             {
                 return NotFound();
@@ -124,6 +126,11 @@ namespace CongThongTin.Controllers
                     {
                         post.avatar = Upload(file);
                     }
+                    else
+                    {
+                        post.avatar = post.avatar;
+                    }
+                    //post.Date_update = DateTime.Now;
                     _context.Update(post);
                     await _context.SaveChangesAsync();
                 }
