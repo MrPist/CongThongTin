@@ -128,9 +128,10 @@ namespace CongThongTin.Controllers
                     }
                     else
                     {
-                        post.avatar = post.avatar;
+                        // Nếu không, giữ lại hình ảnh cũ
+                        var oldPost = await _context.Post.AsNoTracking().FirstOrDefaultAsync(p => p.PostID == id);
+                        post.avatar = oldPost.avatar;
                     }
-                    //post.Date_update = DateTime.Now;
                     _context.Update(post);
                     await _context.SaveChangesAsync();
                 }
