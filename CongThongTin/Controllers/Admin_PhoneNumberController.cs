@@ -51,8 +51,8 @@ namespace CongThongTin.Controllers
         // GET: Admin_PhoneNumber/Create
         public IActionResult Create()
         {
-            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Number_TypeID");
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID");
+            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Title");
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name");
             return View();
         }
 
@@ -69,8 +69,8 @@ namespace CongThongTin.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Number_TypeID", phone_number.Number_TypeID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", phone_number.PostCateID);
+            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Title", phone_number.Number_TypeID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", phone_number.PostCateID);
             return View(phone_number);
         }
 
@@ -87,8 +87,8 @@ namespace CongThongTin.Controllers
             {
                 return NotFound();
             }
-            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Number_TypeID", phone_number.Number_TypeID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", phone_number.PostCateID);
+            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Title", phone_number.Number_TypeID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", phone_number.PostCateID);
             return View(phone_number);
         }
 
@@ -124,8 +124,8 @@ namespace CongThongTin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Number_TypeID", phone_number.Number_TypeID);
-            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "PostCateID", phone_number.PostCateID);
+            ViewData["Number_TypeID"] = new SelectList(_context.Number_Type, "Number_TypeID", "Title", phone_number.Number_TypeID);
+            ViewData["PostCateID"] = new SelectList(_context.Post_cate, "PostCateID", "Name", phone_number.PostCateID);
             return View(phone_number);
         }
 

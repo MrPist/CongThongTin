@@ -19,5 +19,6 @@ namespace CongThongTin.Data
         public DbSet<CongThongTin.Models.Phone_number> Phone_number { get; set; }
         public DbSet<CongThongTin.Models.Package> Package { get; set; }
         public DbSet<CongThongTin.Models.Package_Cate> Package_Cate { get; set; }
+        public DbSet<CongThongTin.Models.Cuahang> Cuahang { get; set; }
     }
 }

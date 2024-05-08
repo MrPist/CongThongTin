@@ -47,7 +47,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
-                        
+                        <a class="nav-link" asp-action="Index" asp-controller="Admin_CuaHang">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-shop"></i></div>
+                            Cửa hàng
+                        </a>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                             Trang tin
@@ -56,25 +59,25 @@
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Thể loại
+                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-packing"></i></div>Thể loại
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PostCate">Loại trang tin</a>
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PackageCate">Loại gói cước</a>
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_NumberType">Loại sim số</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PostCate"><div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>Loại trang tin</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PackageCate"><div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></div>Loại gói cước</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_NumberType"><div class="sb-nav-link-icon"><i class="fa-solid fa-square-phone-flip"></i></i></div>Loại sim số</a>
                                     </nav>
                                 </div>
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                    Bản tin
+                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-layer-group"></i></div>Bản tin
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin">Tin tức</a>
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PhoneNumber">Sim số</a>
-                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_Packages">Gói cước</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin"><div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>Tin tức</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_PhoneNumber"><div class="sb-nav-link-icon"><i class="fa-solid fa-square-phone-flip"></i></i></div>Sim số</a>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Admin_Packages"><div class="sb-nav-link-icon"><i class="fa-solid fa-box"></i></div>Gói cước</a>
                                     </nav>
                                 </div>
                             </nav>

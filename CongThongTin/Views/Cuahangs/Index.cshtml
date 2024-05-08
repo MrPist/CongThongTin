@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CongThongTin.Models.Cuahang>
+
+@{
+
+    Layout = "~/Views/Shared/_Layout_Trangchinh.cshtml";
+}
+
+<img width="1300px" height="600px" src="~/images/banner/banner_cty.jpg" />
+<hr />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5">
+            <h2>Thông tin liên hệ</h2>
+            <ul>
+                Hotline:
+                <a href="tel: 077 924 9999">
+                    077 924 9999
+                </a>
+            </ul>
+            <ul>
+                Mail:
+                <a href="mailto: mobifoneaglx@gmail.com">Mobifoneaglx@gmail.com</a>
+            </ul>
+            <ul>
+                Facebook:
+                <a href="https://www.facebook.com/mobifonetinhangiang/">Mobifone An Giang</a>
+            </ul>
+            <ul>
+                <a>Địa chỉ: 93, Trần Hưng Đạo, phường Mỹ Quý, TP.Long Xuyên, An Giang</a>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3924.7127029572684!2d105.44929889246066!3d10.3648409374914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zU-G7kSA5MyBUcuG6p24gSMawbmcgIMSQ4bqhbyBQLk3hu7kgUcO6eSBUcC5Mb25nIFh1ecOqbiBULkFuIEdpYW5n!5e0!3m2!1svi!2s!4v1684899746462!5m2!1svi!2s" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th><h2>TÊN CỬA HÀNG</h2></th>
+                    <th><h2 class="text-center">ĐỊA CHỈ CỬA HÀNG</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.TenCH)</td>
+                        <td><a href="@Html.DisplayFor(modelItem => item.IDmap)">@Html.DisplayFor(modelItem => item.DiaChi)</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
